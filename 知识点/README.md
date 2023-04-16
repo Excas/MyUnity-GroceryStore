@@ -20,3 +20,16 @@
 材质改变时：Material to GraphicRebuild 图像重建<br />
 层级改变、应用动画属性（DidApplyAnimationProperties） ：All to Rebuild 重建所有<br />
 </details>
+
+
+* Unity运行时动态图集的实现 https://edu.uwa4d.com/course-intro/0/152
+
+
+## 资源
+* CatAssets 猫仙洞：http://cathole.top/
+* Unity SBP(Scriptable Build Pipeline):https://zhuanlan.zhihu.com/p/369264807
+* 垃圾回收详解：http://cathole.top/2022/03/13/gc-algorithm-notes-1/
+* [unity 热更知识点梳理工作流介绍](https://developer.aliyun.com/article/789438?spm=a2c6h.12873639.article-detail.57.424c5a83Ck70aE&scm=20140722.ID_community@@article@@789438._.ID_community@@article@@789438-OR_rec-V_1)
+
+* [程序丨入门必看：Unity资源加载及管理](https://mp.weixin.qq.com/s/0XFQt8LmqoTxxst_kKDMjw?)
+* 内存管理设计精要:https://draveness.me/system-design-memory-management/
