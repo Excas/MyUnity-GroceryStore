@@ -7,7 +7,7 @@
 ## 框架类
 * 资源框架CatAsset Task机制 注释超全：https://github.com/CatImmortal/CatAsset
 *  Entity Component实现的技能框架：https://github.com/m969/EGamePlay
-* ECS:https://github.com/XINCGer/Unity3DTraining/tree/master/ECS
+*  ECS:https://github.com/XINCGer/Unity3DTraining/tree/master/ECS
 
 ## 功能类
 * Unity破解：https://github.com/tylearymf/UniHacker
@@ -15,6 +15,11 @@
 * 杀戮尖塔爬塔效果： https://github.com/silverua/slay-the-spire-map-in-unity
 * RTS实现教学：https://github.com/MinaPecheux/UnityTutorials-RTS
 * SLG 联盟区域实现：https://github.com/AngusJohnson/Clipper2
+* 响应式编程 UniRx:https://github.com/neuecc/UniRx
+* 最新C#热更框架：https://github.com/tuyoogame/huatuo
+* C#热更框架 ILR:https://github.com/Ourpalm/ILRuntime
+* 无限滚动列表实现 代码清晰：https://github.com/aillieo/UnityDynamicScrollView
+* Image异步加载/下载：https://github.com/hcq0618/Unity-ImageLoader
 
 ## 文档类
 * 设计模式 ： https://github.com/XINCGer/Unity3DTraining/tree/master/DesignPatterns
