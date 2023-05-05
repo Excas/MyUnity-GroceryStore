@@ -27,3 +27,4 @@
 ## 文档类
 * 设计模式 ： https://github.com/XINCGer/Unity3DTraining/tree/master/DesignPatterns
 * [GameAndUnity-TechLib 游戏和Unity的技术项目引用目录](https://github.com/m969/GameAndUnity-TechLib)
+* 游戏开发相关算法： https://github.com/IceLanguage/LinHowe_GameAlgorithm
