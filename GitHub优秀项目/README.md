@@ -6,6 +6,7 @@
 * [GF塔防项目](https://github.com/DrFlower/TowerDefense-GameFramework-Demo)
 * [Unity ECS 官方案例](https://github.com/Unity-Technologies/EntityComponentSystemSamples)
 * [EGamePlay](https://github.com/m969/EGamePlay)
+* 木叶战记续作 战旗游戏：https://github.com/Phynic/SLGanim
 ## 框架类
 * 资源框架CatAsset Task机制 注释超全：https://github.com/CatImmortal/CatAsset
 *  Entity Component实现的技能框架：https://github.com/m969/EGamePlay
@@ -24,6 +25,9 @@
 * Image异步加载/下载：https://github.com/hcq0618/Unity-ImageLoader
 * Unity 后台下载 ：https://github.com/Unity-Technologies/BackgroundDownload
 * 四叉树场景加载 ： https://github.com/ChuKuang/QuadTreeDemo
+* Unity 实现各种寻路算法 :https://github.com/dbrizov/Unity-PathFindingAlgorithms
 
 ## 文档类
 * 设计模式 ： https://github.com/XINCGer/Unity3DTraining/tree/master/DesignPatterns
+* [GameAndUnity-TechLib 游戏和Unity的技术项目引用目录](https://github.com/m969/GameAndUnity-TechLib)
+* 游戏开发相关算法： https://github.com/IceLanguage/LinHowe_GameAlgorithm
