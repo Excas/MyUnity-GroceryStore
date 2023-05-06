@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.FunctionRealization.iml
+# Datasource local storage ignored files
+/../../../../../../../:\MyUnity-GroceryStore\功能实现\FunctionRealization\.idea\.idea.FunctionRealization\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
