@@ -122,7 +122,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
+-r:"Assets/Plugins/DOTween/DOTween.dll"
 -r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"D:/unity2021.3.12f1/Unity 2021.3.12f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -329,13 +329,10 @@
 -r:"D:/unity2021.3.12f1/Unity 2021.3.12f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
 -r:"D:/unity2021.3.12f1/Unity 2021.3.12f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"D:/unity2021.3.12f1/Unity 2021.3.12f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-firstpass.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
--r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
--r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.Analytics.ref.dll"
--r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.Environments.ref.dll"
--r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.ref.dll"
@@ -355,6 +352,9 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/Plugins/DOTween/DOTween.dll"
+-analyzer:"Assets/Plugins/DOTween/Editor/DOTweenEditor.dll"
+-analyzer:"Assets/Plugins/DOTween/Editor/DOTweenUpgradeManager.dll"
 "Assets/Function/寻路算法/Scripts/AstarForUnity/FindPath.cs"
 "Assets/Function/寻路算法/Scripts/AstarForUnity/GridBase.cs"
 "Assets/Function/寻路算法/Scripts/AstarForUnity/Node.cs"
@@ -363,6 +363,7 @@
 "Assets/Function/寻路算法/Scripts/PathFindingAlgorithms/Tile.cs"
 "Assets/Function/寻路算法/Scripts/PathFindingAlgorithms/TileGrid.cs"
 "Assets/Function/棋盘算法/Scripts/Function_Chess.cs"
+"Assets/Function/贝塞尔曲线/Scripts/Bessel.cs"
 -langversion:9.0
 
 /deterministic

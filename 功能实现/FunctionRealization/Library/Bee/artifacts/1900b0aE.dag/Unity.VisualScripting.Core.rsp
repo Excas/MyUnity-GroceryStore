@@ -125,11 +125,9 @@
 -define:MODULE_PHYSICS_2D_EXISTS
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/log4netPlastic.dll"
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll"
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.collab-proxy@1.17.2/Lib/Editor/PlasticSCM/unityplastic.dll"
--r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
+-r:"Assets/Plugins/DOTween/DOTween.dll"
+-r:"Assets/Plugins/DOTween/Editor/DOTweenEditor.dll"
+-r:"Assets/Plugins/DOTween/Editor/DOTweenUpgradeManager.dll"
 -r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll"
 -r:"C:/MyUnity-GroceryStore/功能实现/FunctionRealization/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll"
@@ -343,6 +341,9 @@
 -r:"D:/unity2021.3.12f1/Unity 2021.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/Plugins/DOTween/DOTween.dll"
+-analyzer:"Assets/Plugins/DOTween/Editor/DOTweenEditor.dll"
+-analyzer:"Assets/Plugins/DOTween/Editor/DOTweenUpgradeManager.dll"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloner.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloners/AnimationCurveCloner.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloners/ArrayCloner.cs"

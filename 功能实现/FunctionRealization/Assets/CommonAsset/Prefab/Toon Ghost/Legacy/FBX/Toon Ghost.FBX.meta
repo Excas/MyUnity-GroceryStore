@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: 5105a6ade52940445946d7f27855898f
+timeCreated: 1444899352
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rig
+    100004: RigHead
+    100006: RigHeadGizmo
+    100008: RigMouthDown
+    100010: RigMouthDownGizmo
+    100012: RigMouthUp
+    100014: RigMouthUpGizmo
+    100016: RigNeck
+    100018: RigRibcage
+    100020: RigRibcageGizmo
+    100022: RigTail1
+    100024: RigTail1Gizmo
+    100026: RigTail2
+    100028: RigTail2Gizmo
+    100030: RigTail3
+    100032: RigTail3Gizmo
+    100034: Toon Ghost
+    400000: //RootNode
+    400002: Rig
+    400004: RigHead
+    400006: RigHeadGizmo
+    400008: RigMouthDown
+    400010: RigMouthDownGizmo
+    400012: RigMouthUp
+    400014: RigMouthUpGizmo
+    400016: RigNeck
+    400018: RigRibcage
+    400020: RigRibcageGizmo
+    400022: RigTail1
+    400024: RigTail1Gizmo
+    400026: RigTail2
+    400028: RigTail2Gizmo
+    400030: RigTail3
+    400032: RigTail3Gizmo
+    400034: Toon Ghost
+    2300000: //RootNode
+    2300002: Toon Ghost
+    3300000: //RootNode
+    3300002: Toon Ghost
+    4300000: Toon Ghost
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Toon Ghost
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
