@@ -23,6 +23,7 @@
 * 无限滚动列表实现 代码清晰：https://github.com/aillieo/UnityDynamicScrollView
 * Image异步加载/下载：https://github.com/hcq0618/Unity-ImageLoader
 * Unity 后台下载 ：https://github.com/Unity-Technologies/BackgroundDownload
+* Unity 实现各种寻路算法 :https://github.com/dbrizov/Unity-PathFindingAlgorithms
 
 ## 文档类
 * 设计模式 ： https://github.com/XINCGer/Unity3DTraining/tree/master/DesignPatterns
