@@ -1,59 +1,67 @@
 using System;
 using System.Collections.Generic;
+using Common.CommonScripts;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = System.Random;
 
-public class Bessel : MonoBehaviour
+public class Bessel : FunctionBaseView
 {
-    public Button TriggerBtn;
-    public Image Image_Icon1;
-    public Slider slider;
-    public TextMeshProUGUI addTipTxt;
-    public GameObject Obj_itemForFly;
-    public Transform viewRoot;
+    public GameObject mTarget;
+    public Slider mSlider;
+    public TextMeshProUGUI mAddTipTxt;
+    public GameObject mFlyItem;
+    public Transform mViewRoot;
 
     //延迟移动时间、每块出发间隔时间
     private const float FlyItemDelayTime = 0.08f;
     //飞行总时间
     private const float FlyItemFlyTimeTotal = 0.6f;
     //半个对象池
-    private static Dictionary<int, List<Transform>> ItemPools = new Dictionary<int, List<Transform>>();
+    private static Dictionary<int, List<Transform>> mItemPool = new Dictionary<int, List<Transform>>();
 
-    private float sliderValue;
-    private void Awake()
+    private float mSliderValue;
+
+    private void Start()
     {
-        TriggerBtn.onClick.AddListener(() => { SliderEffect(); });
+        mBtn1.BtnTxt = "Fly";
+    }
+
+    protected override void OnBtn1Click()
+    {
+        base.OnBtn1Click();
+        SliderEffect();
     }
 
     private void SliderEffect()
     {
         long flyCount = UnityEngine.Random.Range(5, 12);
-        Vector3 endPos = viewRoot.transform.InverseTransformPoint(Image_Icon1.transform.position);
-        sliderValue += 0.2f;
-        sliderValue = sliderValue > 1 ? 1 : sliderValue;
-        FlyItems(flyCount,Obj_itemForFly, viewRoot, Vector3.zero, endPos, null, () =>
+        Vector3 endPos = mViewRoot.transform.InverseTransformPoint(mTarget.transform.position);
+        mSliderValue += 0.2f;
+        mSliderValue = mSliderValue > 1 ? 0 : mSliderValue;
+        FlyItems(flyCount, mFlyItem, mViewRoot, Vector3.zero, endPos, null, () =>
         {
             //飞完道具之后的操作
             ShowAddActPointTip(flyCount);
             DoHeadAni(flyCount);
-            DoSliderAni(sliderValue);
+            DoSliderAni(mSliderValue);
         });
     }
 
     private void DoSliderAni(float time)
     {
-        slider.DOValue(time, 1);
+        mSlider.DOValue(time, 1);
     }
 
     private void DoHeadAni(long shakeNum)
     {
         var sequence = DOTween.Sequence();
-        sequence.Append(Image_Icon1.transform.DOScale(new Vector3(1.1f, 1.1f, 1f), 0.04f))
-            .AppendCallback(PlayGoldFlyEndSound).SetLoops((int)shakeNum, LoopType.Yoyo);
+        sequence.Append(mTarget.transform.DOScale(new Vector3(1.3f, 1.3f, 1f), 0.04f))
+            .AppendCallback(PlayGoldFlyEndSound).SetLoops((int) shakeNum, LoopType.Yoyo).OnComplete((() =>
+            {
+                mTarget.transform.localScale = Vector3.one;
+            }));
     }
 
     private void PlayGoldFlyEndSound()
@@ -63,31 +71,28 @@ public class Bessel : MonoBehaviour
 
     private void ShowAddActPointTip(long num)
     {
-        addTipTxt.text = $"+{num}";
-        addTipTxt.gameObject.SetActive(true);
-        addTipTxt.transform.localScale = Vector3.zero;
+        mAddTipTxt.text = $"+{num}";
+        mAddTipTxt.gameObject.SetActive(true);
+        mAddTipTxt.transform.localScale = Vector3.zero;
 
-        addTipTxt.DOFade(1, 0.2f);
-        addTipTxt.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetEase(Ease.OutBack).OnComplete(() =>
+        mAddTipTxt.DOFade(1, 0.2f);
+        mAddTipTxt.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetEase(Ease.OutBack).OnComplete(() =>
         {
-            addTipTxt.DOFade(0, 0.2f).SetDelay(1.5f).OnComplete(() => { addTipTxt.gameObject.SetActive(false); });
+            mAddTipTxt.DOFade(0, 0.2f).SetDelay(1.5f).OnComplete(() =>
+            {
+                mAddTipTxt.gameObject.SetActive(false);
+            });
         });
     }
 
-    private void FlyItems(long flyItemNum,GameObject item, Transform parent, Vector3 startPos, Vector3 endPos, Action first, Action complete)
+    private void FlyItems(long flyItemNum, GameObject item, Transform parent, Vector3 startPos, Vector3 endPos, Action first, Action complete)
     {
-        //关键参数 资源总量、飞行块数、每块出发间隔时间、飞行总时间、贝塞尔曲线点数
-        //资源总量(后续要通过它来计算飞行块总数)
-        flyItemNum =  flyItemNum >= 10 ? 10 : flyItemNum;;
-        //延迟移动时间、每块出发间隔时间
-        float delayTime = FlyItemDelayTime;
-        //飞行总时间
-        float flyTimeTotal = FlyItemFlyTimeTotal;
+        flyItemNum = flyItemNum >= 10 ? 10 : flyItemNum;
+        ;
         //贝塞尔曲线最大点数
         int bezierMaxPoint = 30;
         //贝塞尔曲线中点偏移量
         Vector3 bezierOffset = new Vector3();
-
         int count = 0;
         int instanceID = item.GetInstanceID();
 
@@ -102,10 +107,10 @@ public class Bessel : MonoBehaviour
             }
 
             Transform itemObj = null;
-            if (ItemPools.ContainsKey(instanceID) && ItemPools[instanceID].Count > 0)
+            if (mItemPool.ContainsKey(instanceID) && mItemPool[instanceID].Count > 0)
             {
-                itemObj = ItemPools[instanceID][0];
-                ItemPools[instanceID].RemoveAt(0);
+                itemObj = mItemPool[instanceID][0];
+                mItemPool[instanceID].RemoveAt(0);
             }
             else
             {
@@ -116,15 +121,15 @@ public class Bessel : MonoBehaviour
             itemObj.gameObject.SetActive(true);
             itemObj.localPosition = startPos;
             var sequence = DOTween.Sequence();
-            sequence.AppendInterval(i * delayTime)
-                .Append(itemObj.DOLocalPath(posList, flyTimeTotal, PathType.CatmullRom)).OnComplete(() =>
+            sequence.AppendInterval(i * FlyItemDelayTime)
+                .Append(itemObj.DOLocalPath(posList, FlyItemFlyTimeTotal, PathType.CatmullRom)).OnComplete(() =>
                 {
-                    if (!ItemPools.ContainsKey(instanceID))
+                    if (!mItemPool.ContainsKey(instanceID))
                     {
-                        ItemPools.Add(instanceID, new List<Transform>());
+                        mItemPool.Add(instanceID, new List<Transform>());
                     }
 
-                    ItemPools[instanceID].Add(itemObj);
+                    mItemPool[instanceID].Add(itemObj);
                     itemObj.gameObject.SetActive(false);
                     count++;
                     if (count >= flyItemNum)
@@ -138,7 +143,7 @@ public class Bessel : MonoBehaviour
                 });
         }
     }
-    
+
     /// <summary>
     /// 获得贝塞尔曲线坐标
     /// </summary>
