@@ -6,7 +6,39 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bessel : FunctionBaseView
+public partial class Bessel
+{
+    /// <summary>
+    /// 获取贝塞尔曲线
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="endPos"></param>
+    /// <returns></returns>
+    public static Vector3[] GetBezier(Vector3 startPos, Vector3 endPos)
+    {
+        int bezierMaxPoint = 30;
+        Vector3 bezierOffset = new Vector3();
+        Vector3[] posList = new Vector3[bezierMaxPoint];
+        bezierOffset.x = UnityEngine.Random.Range(-200f, 200f);
+        bezierOffset.y = (endPos.y - startPos.y) / 2;
+        for (int b = 0; b < bezierMaxPoint; b++)
+        {
+            posList[b] = GetBezier2Pos(startPos, startPos + bezierOffset, endPos, b / (float) bezierMaxPoint);
+        }
+
+        return posList;
+    }
+
+    /// <summary>
+    /// 获得贝塞尔曲线坐标
+    /// </summary>
+    public static Vector3 GetBezier2Pos(Vector3 p0, Vector3 p1, Vector3 p2, float t)
+    {
+        float st = 1 - t;
+        return st * st * p0 + 2 * t * st * p1 + t * t * p2;
+    }
+}
+public partial class Bessel : FunctionBaseView
 {
     public GameObject mTarget;
     public Slider mSlider;
@@ -142,14 +174,5 @@ public class Bessel : FunctionBaseView
                     }
                 });
         }
-    }
-
-    /// <summary>
-    /// 获得贝塞尔曲线坐标
-    /// </summary>
-    private Vector3 GetBezier2Pos(Vector3 p0, Vector3 p1, Vector3 p2, float t)
-    {
-        float st = 1 - t;
-        return st * st * p0 + 2 * t * st * p1 + t * t * p2;
     }
 }
