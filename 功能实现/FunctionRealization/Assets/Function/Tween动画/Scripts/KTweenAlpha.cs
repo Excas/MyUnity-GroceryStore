@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UTweenAlpha : UTweener
+public class KTweenAlpha : KTweener
 {
     public float mFrom = 1;
     public float to = 1;
@@ -63,4 +63,3 @@ public class UTweenAlpha : UTweener
         SetAlpha(to);
     }
 }
-

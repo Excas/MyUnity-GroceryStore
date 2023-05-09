@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AutoRun : AutoPlay
+public class TweenRun : TweenPlay
 {
     public enum Style
     {

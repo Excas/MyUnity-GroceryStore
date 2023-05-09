@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class AutoPlay : MonoBehaviour
+public abstract class TweenPlay : MonoBehaviour
 {
     public enum PlayMoment
     {

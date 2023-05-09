@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UTweenPosition : UTweener
+public class KTweenPosition : KTweener
 {
     public Vector3 mFrom;
     public Vector3 to;

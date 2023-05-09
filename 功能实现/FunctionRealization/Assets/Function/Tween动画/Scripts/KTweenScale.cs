@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-public class UTweenScale : UTweener
+public class KTweenScale : KTweener
 {
     public Vector3 mFrom;
     public Vector3 to;
     public Transform mTransform;
-
-    public float extraDelay ;
     protected override void Awake()
     {
         if (mTransform == null)
@@ -48,4 +46,3 @@ public class UTweenScale : UTweener
         SetScale(to);
     }
 }
-

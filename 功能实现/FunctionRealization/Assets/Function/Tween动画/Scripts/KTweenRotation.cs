@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UTweenRotation : UTweener
+public class KTweenRotation : KTweener
 {
     public Vector3 mFrom;
     public Vector3 to;
@@ -56,4 +56,3 @@ public class UTweenRotation : UTweener
         SetRotation(to);
     }
 }
-
