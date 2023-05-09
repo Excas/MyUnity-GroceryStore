@@ -364,10 +364,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
--analyzer:"Assets/Plugins/DOTween/DOTween.dll"
--analyzer:"Assets/Plugins/DOTween/Editor/DOTweenEditor.dll"
--analyzer:"Assets/Plugins/DOTween/Editor/DOTweenUpgradeManager.dll"
-"Assets/Editor/Createfolder.cs"
+"Assets/Common/Editor/CreateCommonUI.cs"
+"Assets/Common/Editor/Createfolder.cs"
+"Assets/Common/Editor/FunctionList.cs"
+"Assets/Common/Editor/SetPropertyDrawer.cs"
 -langversion:9.0
 
 /deterministic
