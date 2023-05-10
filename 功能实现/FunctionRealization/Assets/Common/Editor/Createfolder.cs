@@ -2,24 +2,25 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class Createfolder : EditorWindow
+public partial class FunctionList
 {
-    [MenuItem("Tools/CreateFunctionFolder")]
-    public static void AddWindow()
-    {
-        Rect wr = new Rect(0, 0, 400, 200);
-        Createfolder window = (Createfolder) GetWindowWithRect(typeof(Createfolder), wr, true, "创建功能文件夹");
-        window.Show();
-    }
+    // [MenuItem("Tools/CreateFunctionFolder")]
+    // public static void AddWindow()
+    // {
+    //     Rect wr = new Rect(0, 0, 400, 200);
+    //     Createfolder window = (Createfolder) GetWindowWithRect(typeof(Createfolder), wr, true, "创建功能文件夹");
+    //     window.Show();
+    // }
     
     private string functionName;
     private string path;
     private bool createPrefab = true;
     private bool createScript = true;
     private bool createScene = true;
-    void OnGUI()
+
+
+    public void CreateFolder()
     {
-        EditorGUILayout.Space();
         functionName = EditorGUILayout.TextField("功能名:", functionName);
         EditorGUILayout.Space();
         
@@ -39,7 +40,7 @@ public class Createfolder : EditorWindow
         createScript = EditorGUILayout.Toggle("Scripts", createScript);
         createScene = EditorGUILayout.Toggle("Scene", createScene);
         EditorGUILayout.Space();
-        if (GUILayout.Button("创建", GUILayout.Width(80), GUILayout.Height(40)) && !string.IsNullOrWhiteSpace(functionName))
+        if (GUILayout.Button("创建"))
         {
             GenerateFolder();
             ShowNotification(new GUIContent("创建成功"));

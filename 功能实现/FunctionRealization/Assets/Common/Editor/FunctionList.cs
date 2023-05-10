@@ -2,8 +2,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-public class FunctionList : EditorWindow
+public partial class FunctionList : EditorWindow
 {
+    enum ETAB
+    {
+        FunctionView,
+        CreateFolder
+    }
     [MenuItem("Tools/OpenFunctionView")]
     public static void Open()
     {
@@ -19,9 +24,29 @@ public class FunctionList : EditorWindow
         {FunctionFolder.Main, new FunctionFolderData{Path = "/Function"}},
         {FunctionFolder.Dotween, new FunctionFolderData{Path = "/Function/Dotween动画"}}
     };
+
+    private ETAB m_Tab;
+    static string[] TAB =  { "查找", "创建"};
     void OnGUI()
     {
-        OnDrawFunctionList();
+        GUILayout.BeginHorizontal();
+        for (int i = 0; i < TAB.Length; ++i)
+        {
+            if (GUILayout.Button(TAB[i], GUILayout.Width(90)))
+                m_Tab = (ETAB)i;
+        }
+        GUILayout.EndHorizontal();
+        EditorGUILayout.Space();
+        switch (m_Tab)
+        {
+            case ETAB.FunctionView:                
+                OnDrawFunctionList();
+                break;
+            case ETAB.CreateFolder:
+                CreateFolder();
+                break;
+        }
+       
     }
 
     private void OnDrawFunctionList()
