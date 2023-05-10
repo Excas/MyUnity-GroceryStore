@@ -10,61 +10,67 @@ public class FunctionList : EditorWindow
         var window = GetWindow<FunctionList>();
         window.minSize = new Vector2(400, 600);
     }
-
-    private float m_RowHeight = 18f;
-    private float m_ColWidth = 400;
-    private Vector2 m_ScrollPosition;
-
-    private Dictionary<FunctionFolder,string> mFuncFolder=new Dictionary<FunctionFolder, string>()
+    
+    private Vector2 mScrollPosition;
+    private string mFinderName="";
+    
+    private Dictionary<FunctionFolder, FunctionFolderData> mFuncFolder = new Dictionary<FunctionFolder, FunctionFolderData>()
     {
-        {FunctionFolder.Main,"/Function"},
-        {FunctionFolder.Dotween,"/Function/Dotween动画"}
+        {FunctionFolder.Main, new FunctionFolderData{Path = "/Function"}},
+        {FunctionFolder.Dotween, new FunctionFolderData{Path = "/Function/Dotween动画"}}
     };
-
-    private string FindFunctionName;
     void OnGUI()
     {
         OnDrawFunctionList();
     }
 
-    private  void OnDrawFunctionList()
+    private void OnDrawFunctionList()
     {
         GUILayout.BeginHorizontal();
         {
-            FindFunctionName = EditorGUILayout.TextField("功能名:", FindFunctionName);
-            if (GUILayout.Button("搜索", GUILayout.Width(50f)))
-            {
-                
-            }
+            mFinderName = EditorGUILayout.TextField("功能名搜索:", mFinderName);
             if (GUILayout.Button("清除", GUILayout.Width(50f)))
             {
-                
+                mFinderName = "";
+                CreateFunctionList();
+                GUI.FocusControl("功能名搜索:");
             }
         }
         GUILayout.EndHorizontal();
-        CreateFunctionGroup(FunctionFolder.Main);
-        CreateFunctionGroup(FunctionFolder.Dotween);
-        m_ScrollPosition = EditorGUILayout.BeginScrollView(m_ScrollPosition);
-
-      
-        EditorGUILayout.EndScrollView();
+        CreateFunctionList();
     }
 
+    private void CreateFunctionList()
+    {
+        mScrollPosition = EditorGUILayout.BeginScrollView(mScrollPosition);
+        CreateFunctionGroup(FunctionFolder.Main);
+        CreateFunctionGroup(FunctionFolder.Dotween);
+        EditorGUILayout.EndScrollView();
+    }
+    private bool isFold;
     private void CreateFunctionGroup(FunctionFolder functionFolder)
     {
-        mFuncFolder.TryGetValue(functionFolder, out string targetFoler);
-        string funcpath = Application.dataPath + targetFoler;
+        mFuncFolder.TryGetValue(functionFolder, out FunctionFolderData targetFoler);
+        string funcpath = Application.dataPath + targetFoler.Path;
         List<string> files = GetNextFolder(funcpath);
         List<string> paths = GetNextFolderPath(funcpath);
-        EditorGUILayout.LabelField(functionFolder.ToString());
+        targetFoler.IsShow = EditorGUILayout.Foldout(targetFoler.IsShow,functionFolder.ToString());
         for (int i = 0; i < files.Count; i++)
         {
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button(files[i]))
+
+            if (targetFoler.IsShow)
             {
-                OpenTargetScenes(paths[i]);
+                EditorGUILayout.BeginHorizontal();
+                if (files[i].Contains(mFinderName))
+                {
+                    if (GUILayout.Button(files[i]))
+                    {
+                        OpenTargetScenes(paths[i]);
+                    }
+                }
+                EditorGUILayout.EndHorizontal();
             }
-            EditorGUILayout.EndHorizontal();
+           
         }
     }
     private static List<string> GetNextFolder(string folderPath)
@@ -75,12 +81,12 @@ public class FunctionList : EditorWindow
         {
             foreach (DirectoryInfo subDir in dir.GetDirectories())
             {
-                floder.Add(subDir.Name); //输出子文件夹名称
+                floder.Add(subDir.Name);
             }
         }
         return floder;
     }
-    
+
     private static List<string> GetNextFolderPath(string folderPath)
     {
         List<string> floder = new List<string>();
@@ -89,7 +95,7 @@ public class FunctionList : EditorWindow
         {
             foreach (DirectoryInfo subDir in dir.GetDirectories())
             {
-                floder.Add(subDir.FullName); //输出子文件夹名称
+                floder.Add(subDir.FullName);
             }
         }
         return floder;
@@ -98,31 +104,37 @@ public class FunctionList : EditorWindow
     private static void OpenTargetScenes(string targetPath)
     {
         DirectoryInfo dir = new DirectoryInfo(targetPath);
+        targetPath = targetPath.Substring(targetPath.IndexOf("Assets"));
+        targetPath = targetPath.Replace('\\', '/');
         bool hasScenes = false;
         if (dir.Exists)
         {
             foreach (FileInfo file in dir.GetFiles("*.unity", SearchOption.AllDirectories))
             {
-                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(file.FullName);
-                Object obj = AssetDatabase.LoadAssetAtPath<Object>(@"Function\棋盘算法");
-                Selection.activeObject = obj;
-                EditorGUIUtility.PingObject(obj);
                 hasScenes = true;
+                UnityEditor.SceneManagement.EditorSceneManager.OpenScene(file.FullName);
                 break;
             }
         }
         if (!hasScenes)
         {
-            Object obj = AssetDatabase.LoadAssetAtPath<Object>(@"Function\棋盘算法");
-            Selection.activeObject = obj;
-            EditorGUIUtility.PingObject(obj);
+            Debug.Log("沒有找到对应场景~~~");
         }
+        Object obj = AssetDatabase.LoadAssetAtPath<Object>(targetPath);
+        Selection.activeObject = obj;
+        EditorGUIUtility.PingObject(obj);
         AssetDatabase.Refresh();
     }
 
-    public enum FunctionFolder
+    private enum FunctionFolder
     {
         Main,
         Dotween,
+    }
+
+    public class FunctionFolderData
+    {
+        public string Path;
+        public bool IsShow=true;
     }
 }
