@@ -9,7 +9,9 @@
 
     public enum ActivityType
     {
-        Demo,
+        None,
+        ActivityDemo1,
+        ActivityDemo2,
     }
 
     public enum ActivityEntryGroup

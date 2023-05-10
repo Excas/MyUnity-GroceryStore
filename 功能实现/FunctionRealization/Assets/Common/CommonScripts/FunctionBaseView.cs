@@ -11,8 +11,8 @@ namespace Common.CommonScripts
         private void Awake()
         {
             mBtn1 = CreateButton(new Vector2(0,0));
-            mBtn2 = CreateButton(new Vector2(0,-60));
-            mBtn3 = CreateButton(new Vector2(0,-120));
+            mBtn2 = CreateButton(new Vector2(0,-80));
+            mBtn3 = CreateButton(new Vector2(0,-160));
             mBtn1.EnumButtonStyle = EnumButtonStyle.Red;
             mBtn2.EnumButtonStyle = EnumButtonStyle.Orange;
             mBtn3.EnumButtonStyle = EnumButtonStyle.Green;
@@ -25,12 +25,14 @@ namespace Common.CommonScripts
         {
             GameObject o = Instantiate(Resources.Load("UI/CommonButton")) as GameObject;
             o.transform.SetParent(transform);
+            o.transform.localPosition=Vector3.zero;
+            o.transform.localScale=Vector3.one;
             RectTransform rect = o.GetComponent<RectTransform>();
             rect.anchorMin= Vector3.one;
             rect.anchorMax = Vector3.one;
             rect.pivot = Vector3.one;
             rect.anchoredPosition  = pos;
-            
+
             return o.GetComponent<CommonButton>();
         }
 

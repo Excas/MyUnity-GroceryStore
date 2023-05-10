@@ -39,5 +39,15 @@
         /// 排序Id
         /// </summary>
         public int SortId { get; }
+
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        public long StartTime { get; private set; }
+        
+        /// <summary>
+        /// 结束时间
+        /// </summary>
+        public long EndTime { get; private set; }
     }
 }

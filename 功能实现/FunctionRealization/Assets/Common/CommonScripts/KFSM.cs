@@ -10,11 +10,9 @@ namespace Common.CommonScripts
             CurState = default(State);
         }
 
-        public void Decide()
+        public void Change()
         {
-            State newState = OnDecide();
-            
-            
+            State newState = OnChange();
             if( !EqualityComparer<State>.Default.Equals(newState, CurState))
             {
                 OnExitState(CurState);
@@ -23,9 +21,16 @@ namespace Common.CommonScripts
             }
         }
 
-        public abstract void OnEnterState(State state);
-        public abstract void OnExitState(State state);
+        public virtual void OnEnterState(State state)
+        {
+            
+        }
 
-        public abstract State OnDecide();
+        public virtual void OnExitState(State state)
+        {
+            
+        }
+
+        public abstract State OnChange();
     }
 }

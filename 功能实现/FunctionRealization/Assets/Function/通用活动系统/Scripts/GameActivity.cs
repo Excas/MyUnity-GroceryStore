@@ -1,22 +1,88 @@
-﻿using Common.CommonScripts;
+﻿using System;
+using Common.CommonScripts;
+using UnityEngine;
 
 namespace Function.通用活动系统.Scripts
 {
-    public class GameActivity<INFO> :KFSM<ActivityState> where INFO : ActivityInfo
+    public class GameActivity<INFO> :KFSM<ActivityState>,IGameActivity where INFO : ActivityInfo
     {
-        public override void OnEnterState(ActivityState state)
+        public override ActivityState OnChange()
         {
-            
+            if (Info == null || Info.ActivityType == ActivityType.None)
+            {
+                return ActivityState.None;
+            }
+
+            long now = DateTime.UtcNow.Millisecond;
+            if (Info.EndTime > now)
+            {
+                return ActivityState.End;
+            }
+            else
+            {
+                return ActivityState.Open;
+            }
         }
 
-        public override void OnExitState(ActivityState state)
+        public ActivityType Type { get; private set; }
+
+        public ActivityInfo GetActInfo()
         {
-           
+            return Info;
         }
 
-        public override ActivityState OnDecide()
+        public IActivityEntry ActivityEntry { get; }
+        public ActivityState State { get; }
+        public INFO Info { get; private set; }
+        public virtual void GetInitData()
         {
             throw new System.NotImplementedException();
+        }
+
+        public virtual void GetActivityData()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void GetPushData()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void OnTick(long t)
+        {
+            OnChange();
+        }
+
+        public virtual bool CanShow()
+        {
+            return State == ActivityState.Open;
+        }
+
+        public virtual bool IsUnlock()
+        {
+            return true;
+        }
+
+        public virtual string GetActivityDes()
+        {
+            return "";
+        }
+
+        public GameObject ShowActivityView(GameObject parent)
+        {
+            GameObject o = AddActivityItem();
+            return null;
+        }
+
+        protected virtual GameObject AddActivityItem()
+        {
+            return null;
+        }
+
+        public void SetActivityType(ActivityType type)
+        {
+            Type = type;
         }
     }
 }
