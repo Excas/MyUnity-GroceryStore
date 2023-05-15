@@ -7,7 +7,8 @@ public partial class FunctionList : EditorWindow
     enum ETAB
     {
         FunctionView,
-        CreateFolder
+        KnowledgeNode,
+        CreateFolder,
     }
     [MenuItem("Tools/OpenFunctionView")]
     public static void Open()
@@ -22,11 +23,12 @@ public partial class FunctionList : EditorWindow
     private Dictionary<FunctionFolder, FunctionFolderData> mFuncFolder = new Dictionary<FunctionFolder, FunctionFolderData>()
     {
         {FunctionFolder.Main, new FunctionFolderData{Path = "/Function"}},
-        {FunctionFolder.Dotween, new FunctionFolderData{Path = "/Function/Dotween动画"}}
+        {FunctionFolder.Dotween, new FunctionFolderData{Path = "/Function/Dotween动画"}},
+        {FunctionFolder.KnowledgeNode,new FunctionFolderData{Path = "/KnowledgeNode"}}
     };
 
     private ETAB m_Tab;
-    static string[] TAB =  { "查找", "创建"};
+    static string[] TAB =  { "查找","知识点", "创建"};
     void OnGUI()
     {
         GUILayout.BeginHorizontal();
@@ -44,6 +46,9 @@ public partial class FunctionList : EditorWindow
                 break;
             case ETAB.CreateFolder:
                 CreateFolder();
+                break;
+            case ETAB.KnowledgeNode:
+                CreateKN();
                 break;
         }
        
@@ -70,6 +75,13 @@ public partial class FunctionList : EditorWindow
         mScrollPosition = EditorGUILayout.BeginScrollView(mScrollPosition);
         CreateFunctionGroup(FunctionFolder.Main);
         CreateFunctionGroup(FunctionFolder.Dotween);
+        EditorGUILayout.EndScrollView();
+    }
+
+    private void CreateKN()
+    {
+        mScrollPosition = EditorGUILayout.BeginScrollView(mScrollPosition);
+        CreateFunctionGroup(FunctionFolder.KnowledgeNode);
         EditorGUILayout.EndScrollView();
     }
     private bool isFold;
@@ -155,6 +167,7 @@ public partial class FunctionList : EditorWindow
     {
         Main,
         Dotween,
+        KnowledgeNode
     }
 
     public class FunctionFolderData
