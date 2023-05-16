@@ -10,16 +10,14 @@ namespace Common
 
     public static class NodeHelper
     {
-        public static void ConsoleNode(LNode node)
+        public static void ConsoleNode(LNode head)
         {
             Console.WriteLine("Result:");
-            LNode head = node;
-            head.Next = null;
             LNode tmp = null;
             LNode cur = head;
             for (cur = head.Next; cur != null; cur = cur.Next)
             {
-                Console.Write(cur.Data + "  ");
+                Console.WriteLine(cur.Data + "  ");
             }
         }
 

@@ -11,19 +11,26 @@ namespace a1._1_链表逆序
             NodeHelper.ConsoleNode(res);
         }
 
-        public static LNode Reverse(LNode test)
+        public static LNode Reverse(LNode head)
         {
-            LNode preNode = null;
-            LNode curNode = test;
-            LNode nextNode = null;
-            for (; curNode.Next!=null; nextNode=curNode.Next)
+            LNode pre, cur, next = null;
+
+            cur = head.Next;
+            next = cur.Next;
+            cur.Next = null;
+            pre = cur;
+            cur = next;
+            while (cur.Next!=null)
             {
-                nextNode = curNode.Next;
-                curNode.Next = null;
-                curNode = nextNode;
+                next = cur.Next;
+                cur.Next = pre;
+                pre = cur;
+                cur = next;
             }
 
-            return curNode;
+            cur.Next = pre;
+            head.Next = cur;
+            return head;
         }
     }
 }
