@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.C-Sharp程序员面试算法宝典.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../:\MyUnity-GroceryStore\知识点\C-Sharp程序员面试算法宝典\.idea\.idea.C-Sharp程序员面试算法宝典\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
