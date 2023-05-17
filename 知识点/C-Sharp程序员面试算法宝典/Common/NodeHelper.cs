@@ -6,18 +6,34 @@ namespace Common
     {
         public int Data;
         public LNode Next;
+
+        public LNode()
+        {
+            
+        }
+
+        public LNode(int data,LNode node)
+        {
+            Data = data;
+            Next = node;
+        }
+        public LNode(int data)
+        {
+            Data = data;
+        }
     }
 
     public static class NodeHelper
     {
-        public static void ConsoleNode(LNode head)
+        public static void ConsoleNode(LNode head,string desc="")
         {
             Console.WriteLine("Result:");
             LNode tmp = null;
             LNode cur = head;
-            for (cur = head.Next; cur != null; cur = cur.Next)
+            Console.WriteLine($"------------{desc}----------");
+            for (; cur != null; cur = cur.Next)
             {
-                Console.WriteLine(cur.Data + "  ");
+                Console.Write(cur.Data + "  ");
             }
         }
 
@@ -27,7 +43,7 @@ namespace Common
             head.Next = null;
             LNode tmp = null;
             LNode cur = head;
-            for (int i = 0; i < 8; i++)
+            for (int i = 1; i < 8; i++)
             {
                 tmp = new LNode();
                 tmp.Data = i;
@@ -36,11 +52,11 @@ namespace Common
                 cur = tmp;
             }
 
-            Console.WriteLine("Node:");
-            for (cur = head.Next; cur != null; cur = cur.Next)
-            {
-                Console.Write(cur.Data + "  ");
-            }
+            // Console.WriteLine("Node:");
+            // for (cur = head.Next; cur != null; cur = cur.Next)
+            // {
+            //     Console.Write(cur.Data + "  ");
+            // }
 
             return head;
         }
