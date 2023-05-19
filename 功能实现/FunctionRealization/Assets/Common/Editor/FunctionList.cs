@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Common.Editor.Function;
 using UnityEditor;
 using UnityEngine;
 public partial class FunctionList : EditorWindow
@@ -65,9 +66,32 @@ public partial class FunctionList : EditorWindow
                 CreateFunctionList();
                 GUI.FocusControl("功能名搜索:");
             }
+
+            if (GUILayout.Button("保存", GUILayout.Width(50f)))
+            {
+                SaveList(FunctionFolder.Main);
+            }
         }
         GUILayout.EndHorizontal();
         CreateFunctionList();
+    }
+
+    private void SaveList(FunctionFolder functionFolder)
+    {
+        mFuncFolder.TryGetValue(functionFolder, out FunctionFolderData targetFoler);
+        string funcpath = Application.dataPath + targetFoler.Path;
+        List<string> paths = GetNextFolderPath(funcpath);
+        FunctionListData listData = Resources.Load<FunctionListData>("ScriptableObject/FunctionList");
+        listData.FunctionListPaths.Clear();
+        foreach (var path in paths)
+        {
+            FunctionData data=new FunctionData();
+            data.AbsolutePath = path;
+            listData.FunctionListPaths.Add(data);
+        }
+        EditorUtility.SetDirty(listData);
+        AssetDatabase.SaveAssets();
+        
     }
 
     private void CreateFunctionList()
