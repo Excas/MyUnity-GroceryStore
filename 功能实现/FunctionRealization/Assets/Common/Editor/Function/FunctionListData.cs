@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Common.Editor.Function
@@ -7,19 +8,28 @@ namespace Common.Editor.Function
     [CreateAssetMenu(menuName = "ScriptableObject/FunctionListData")]
     public class FunctionListData : ScriptableObject
     {
-        public List<FunctionData> FunctionListPaths = new List<FunctionData>();
+        public List<FunctionData> FunctionList = new List<FunctionData>();
 
-        public bool ContainsPath(string path)
+        public bool ContainsPath(string path,out FunctionData func)
         {
-            foreach (var data in FunctionListPaths)
+            foreach (var data in FunctionList)
             {
-                if (data.RelativePath == path)
+                if (data.RelativePath == path || data.AbsolutePath == path) 
                 {
+                    func = data;
                     return true;
                 }
             }
-
+            func = null;
             return false;
+        }
+
+        public void AddFunction(FunctionData func)
+        {
+            if (!FunctionList.Exists(a=> a.Name==func.Name))
+            {
+                FunctionList.Add(func);
+            }
         }
     }
 

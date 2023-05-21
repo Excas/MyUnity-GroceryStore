@@ -1,4 +1,5 @@
-﻿using Common.Editor.Function;
+﻿using System.Collections.Generic;
+using Common.Editor.Function;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,9 +10,13 @@ namespace CatAsset.Editor
     /// </summary>
     public static class DrawDescTool
     {
-        private static Color dirColor = Color.gray;
-        private static Color assetColor = new Color(0, 0.5f, 0.5f);
-
+        private static Dictionary<FunctionState,Color> mFuncColor=new Dictionary<FunctionState, Color>()
+        {
+            {FunctionState.Finish,Color.gray},
+            {FunctionState.Dev,Color.blue},
+            {FunctionState.NotStart,Color.black}
+        };
+        
         [InitializeOnLoadMethod]
         private static void InitializeOnLoadMethod()
         {
@@ -23,9 +28,10 @@ namespace CatAsset.Editor
             string path = AssetDatabase.GUIDToAssetPath(guid);
             
             FunctionListData listData = Resources.Load<FunctionListData>("ScriptableObject/FunctionList");
-            if (AssetDatabase.IsValidFolder(path)&& listData.ContainsPath(path))
+            if (AssetDatabase.IsValidFolder(path)&& listData.ContainsPath(path,out FunctionData data))
             {
-                DrawDesc("desc",selectionRect,dirColor);
+                mFuncColor.TryGetValue(data.State, out var stateColor);
+                DrawDesc(data.State.ToString(),selectionRect,stateColor);
             }
         }
 
@@ -43,7 +49,6 @@ namespace CatAsset.Editor
 
             GUIStyle label = EditorStyles.label;
             GUIContent content = new GUIContent(desc);
-
 
             Rect pos = selectionRect;
 

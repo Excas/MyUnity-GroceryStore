@@ -82,12 +82,12 @@ public partial class FunctionList : EditorWindow
         string funcpath = Application.dataPath + targetFoler.Path;
         List<string> paths = GetNextFolderPath(funcpath);
         FunctionListData listData = Resources.Load<FunctionListData>("ScriptableObject/FunctionList");
-        listData.FunctionListPaths.Clear();
         foreach (var path in paths)
         {
             FunctionData data=new FunctionData();
             data.AbsolutePath = path;
-            listData.FunctionListPaths.Add(data);
+            data.Name = Path.GetFileNameWithoutExtension(path);
+            listData.AddFunction(data);
         }
         EditorUtility.SetDirty(listData);
         AssetDatabase.SaveAssets();
