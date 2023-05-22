@@ -6,13 +6,9 @@
     public interface IActivityEntry
     {
         int ActivityId { get; }
-
         ActivityType ActivityType { get; }
-        
         string EntryIcon { get; }
-        
         string ActivityName { get; }
-
         IGameActivity Activity { get; }
     }
 }

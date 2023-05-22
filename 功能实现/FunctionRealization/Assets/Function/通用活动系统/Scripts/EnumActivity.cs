@@ -1,5 +1,8 @@
 ﻿namespace Function.通用活动系统.Scripts
 {
+    /// <summary>
+    /// 活动动态
+    /// </summary>
     public enum ActivityState
     {
         None,
@@ -7,6 +10,9 @@
         End
     }
 
+    /// <summary>
+    /// 活动类型
+    /// </summary>
     public enum ActivityType
     {
         None,
@@ -14,6 +20,9 @@
         ActivityDemo2,
     }
 
+    /// <summary>
+    /// 活动分组
+    /// </summary>
     public enum ActivityEntryGroup
     {
         Activity,

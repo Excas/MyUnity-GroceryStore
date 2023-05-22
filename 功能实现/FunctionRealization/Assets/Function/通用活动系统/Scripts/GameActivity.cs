@@ -34,19 +34,19 @@ namespace Function.通用活动系统.Scripts
         public IActivityEntry ActivityEntry { get; }
         public ActivityState State { get; }
         public INFO Info { get; private set; }
-        public virtual void GetInitData()
+        public virtual void GetInitData(SCInfo severInfo)
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public virtual void GetActivityData()
+        public virtual void GetActivityData(SCInfo severInfo)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public virtual void GetPushData()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public virtual void OnTick(long t)
