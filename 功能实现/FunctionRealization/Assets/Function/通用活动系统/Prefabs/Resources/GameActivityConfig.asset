@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa9baa6cb364c0a91ad93b34cae773f, type: 3}
+  m_Name: GameActivityConfig
+  m_EditorClassIdentifier: 
+  ActivityConfigList:
+  - ActivityPrefab: {fileID: 7139712998820908578, guid: a6e54abe0ca362d47a4180d51eec8029, type: 3}
+    ActivityIcon: {fileID: 21300000, guid: 732dfbd0bee74431e82ef64780b01eee, type: 3}
+    ActivityType: 1
+    Name: Demo1
+    Desc: "\u6D3B\u52A8\u6D4B\u8BD5Demo1\u63CF\u8FF0\u554A\u554A\u554A"
+    Sort: 1
+  - ActivityPrefab: {fileID: 6630260659274435549, guid: 56264526345b32544835e1db860dc814, type: 3}
+    ActivityIcon: {fileID: 21300000, guid: d0aeb09e3df39454ea7fd1232278024a, type: 3}
+    ActivityType: 2
+    Name: "Demo1\u7684\u513F\u5B50Demo2"
+    Desc: "\u5475\u5475 \u8FD9\u662F\u6D3B\u52A8\u6D4B\u8BD5Demo2\u7684\u63CF\u8FF0"
+    Sort: 2
+  - ActivityPrefab: {fileID: 8245366723049236284, guid: f2a99aaf086fe7e4994ac8ff6f8d62b8, type: 3}
+    ActivityIcon: {fileID: 21300000, guid: 190b414e9daa245c3ae30441b3ad71ca, type: 3}
+    ActivityType: 3
+    Name: "\u62BD\u5956(Demo3)"
+    Desc: "\u8FD9\u662F\u4E00\u4E2A\u62BD\u5956\u6D3B\u52A8\u554A"
+    Sort: 3

@@ -42,13 +42,13 @@ MonoBehaviour:
     State: 2
   - Name: "\u81EA\u52A8\u751F\u6210\u754C\u9762\u57FA\u7840\u4EE3\u7801"
     AbsolutePath: "M:\\UnityProject\\MyUnity-GroceryStore\\\u529F\u80FD\u5B9E\u73B0\\FunctionRealization\\Assets\\Function\\\u81EA\u52A8\u751F\u6210\u754C\u9762\u57FA\u7840\u4EE3\u7801"
-    State: 0
+    State: 1
   - Name: "\u8D1D\u585E\u5C14\u66F2\u7EBF"
     AbsolutePath: "M:\\UnityProject\\MyUnity-GroceryStore\\\u529F\u80FD\u5B9E\u73B0\\FunctionRealization\\Assets\\Function\\\u8D1D\u585E\u5C14\u66F2\u7EBF"
     State: 2
   - Name: "\u901A\u7528\u6D3B\u52A8\u7CFB\u7EDF"
     AbsolutePath: "M:\\UnityProject\\MyUnity-GroceryStore\\\u529F\u80FD\u5B9E\u73B0\\FunctionRealization\\Assets\\Function\\\u901A\u7528\u6D3B\u52A8\u7CFB\u7EDF"
-    State: 1
+    State: 2
   - Name: "\u9065\u611F"
     AbsolutePath: "M:\\UnityProject\\MyUnity-GroceryStore\\\u529F\u80FD\u5B9E\u73B0\\FunctionRealization\\Assets\\Function\\\u9065\u611F"
     State: 2

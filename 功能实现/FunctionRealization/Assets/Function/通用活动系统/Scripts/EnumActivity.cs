@@ -16,8 +16,9 @@
     public enum ActivityType
     {
         None,
-        ActivityDemo1,
-        ActivityDemo2,
+        ActivityDemo1 = 1,
+        ActivityDemo2 = 2,
+        Activity_Lottery = 3,
     }
 
     /// <summary>
@@ -25,8 +26,8 @@
     /// </summary>
     public enum ActivityEntryGroup
     {
-        Activity,
-        Activity2,
-        Activity3,
+        ActivityGroup1,
+        ActivityGroup2,
+        ActivityGroup3,
     }
 }
